@@ -1,18 +1,18 @@
 import React from "react";
 import { connect } from "react-redux";
 import { loadMoreArticles } from "./../../Redux/loadMore/loadMoreActions";
+import "./LoadMoreButton.css";
 
-const LoadMoreButton = ({ loadMoreArticles, moreComments }) => {
+const LoadMoreButton = ({ loadMoreArticles}) => {
   // console.log(moreComments)
-  const [comments, setComments] = React.useState([...moreComments]);
+  // const [comments, setComments] = React.useState([...moreComments]);
 
-  React.useEffect(() => {
-    //CDM
-    loadMoreArticles();
-  }, []);
-  console.log(comments, moreComments);
+  // React.useEffect(() => {
+  //   //CDM
+  //   loadMoreArticles();
+  // }, []);
   return (
-    <div>
+    <div className="loadMoreBtn center">
       <button onClick={loadMoreArticles}>load more articles</button>
     </div>
   );
@@ -22,8 +22,6 @@ var actions = {
   loadMoreArticles,
 };
 
-var mapState = (state) => ({
-  moreComments: state.loadMoreReducer,
-});
 
-export default connect(mapState, actions)(LoadMoreButton);
+
+export default connect(null, actions)(LoadMoreButton);
