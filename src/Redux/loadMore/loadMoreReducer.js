@@ -3,9 +3,10 @@ var initialState = [];
  
 var loadMoreReducer = (state = initialState, actions) => {
     var {type, payload} = actions
+    console.log(payload)
     switch (type) {
         case LOAD_MORE_ARTICLES:
-            return [...payload.articles]
+            return [...state, payload.articles]
     
         default:
             return state;

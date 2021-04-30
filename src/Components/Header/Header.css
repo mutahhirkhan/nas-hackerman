@@ -1,0 +1,10 @@
+.header{
+    font-family: var(--font-family);
+    font-weight: var(--bold);
+}
+
+span{
+    color:var(--primary-color);
+    /* color: #fbc91b; */
+
+}

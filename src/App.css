@@ -1,0 +1,18 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+    text-align: center; /* to remove */
+}
+
+:root{
+    --primary-color: #fbc91b;
+    --black-text: #000000cc;  
+    --grey-text: #00000080;
+    --grey:#f2f2f2;
+    --font-family:'Open Sans', sans-serif;
+    --bold:700;
+    --regular:400
+}

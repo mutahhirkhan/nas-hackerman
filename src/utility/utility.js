@@ -1,6 +1,10 @@
 export var fetchData = async (link) => {
-    var api = String(link)
-    var response = await fetch(api)
-    var data = await response.json()
-    return data
+    try {
+        // var api = String(link)
+        var response = await fetch(String(link))
+        var data = await response.json()
+        return data
+    } catch (error) {
+        console.log(error)
+    }
 }
