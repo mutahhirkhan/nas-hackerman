@@ -1,10 +1,11 @@
 import React from "react";
-import "./Header.css"
+import "./Header.css";
 
-const Header = () => {
+const Header = ({ changeColor = false }) => {
   return (
-    <div className="header">
-      <span>HACKER</span>NEWS
+    <div className="header center">
+      {changeColor ? <span>HACKER</span> : <>HACKER</>}NEWS.
+      
     </div>
   );
 };

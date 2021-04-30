@@ -3,8 +3,6 @@ import { fetchData } from "./../../utility/utility";
 
 export var loadMoreArticles = () => async (dispatch) => {
   try {
-    console.log("fetching...");
-    
     //utility function to load data
     var articles = await fetchData("https://hacker-news.firebaseio.com/v0/item/8863.json?print=pretty");
     // console.log(articles);
