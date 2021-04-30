@@ -1,7 +1,8 @@
 .header{
+    width: 100%;
     font-family: var(--font-family);
     font-weight: var(--extra-bold);
-    height: 10vh;
+    /* height: 10vh; */
     background-color: blanchedalmond;
     flex-flow: initial;
     font-size: 1.5rem;
