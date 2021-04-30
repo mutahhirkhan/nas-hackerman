@@ -1,0 +1,1 @@
+export const LOAD_MORE_ARTICLES = "LOAD_MORE_ARTICLES"
