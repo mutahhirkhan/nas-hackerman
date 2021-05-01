@@ -3,11 +3,11 @@
     font-family: var(--font-family);
     font-weight: var(--extra-bold);
     /* height: 10vh; */
-    background-color: blanchedalmond;
+    background-color: white;
     flex-flow: initial;
     font-size: 1.5rem;
-
-}
+    box-shadow: 0 5px 5px rgba(0,0,0,0.1);
+}   
 
 span{
     color:var(--primary-color);

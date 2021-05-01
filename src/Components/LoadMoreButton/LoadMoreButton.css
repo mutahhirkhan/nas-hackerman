@@ -1,9 +1,16 @@
 .loadMoreBtn{
     width: 95%;
-    padding: 20px 0;
+    padding: 10px 0;
     background: var(--primary-color);
     margin: 10px 0;
     border-radius: 10px;
     display: flex;
     justify-self: center;
+    cursor: pointer;
+}
+.loadMoreContent{
+    background: none;
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
 }

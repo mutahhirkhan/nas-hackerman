@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { loadMoreArticles } from "./../../Redux/loadMore/loadMoreActions";
+import Heading  from "src/Components/Heading/Heading";
 import "./LoadMoreButton.css";
 
 const LoadMoreButton = ({ loadMoreArticles}) => {
@@ -13,7 +14,9 @@ const LoadMoreButton = ({ loadMoreArticles}) => {
   // }, []);
   return (
     <div className="loadMoreBtn center">
-      <button onClick={loadMoreArticles}>load more articles</button>
+      <button className="loadMoreContent" onClick={loadMoreArticles}>
+        <Heading fontWeight="bold" fontSize={10}>Load More</Heading>
+        </button>
     </div>
   );
 };

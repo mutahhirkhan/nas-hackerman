@@ -4,6 +4,7 @@ import LoadMoreButton from '../LoadMoreButton/LoadMoreButton';
 import ThreadPanel from '../ThreadPanel/ThreadPanel';
 import Header from './../Header/Header';
 import "./HackerPanel.css"
+import ThreadSwitch from './../ThreadSwitch/ThreadSwitch';
 
 const HackerPanel = () => {
     return (
@@ -13,6 +14,7 @@ const HackerPanel = () => {
            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt nesciunt similique enim vitae ducimus commodi placeat maiores ratione, cum laborum.</p>
            <h1>HACKERNEWS</h1> */}
         <Header changeColor={true} padding="8px 0" />
+        <ThreadSwitch></ThreadSwitch>
         <ThreadPanel/>
         <LoadMoreButton/>
         <Footer/>

@@ -5,8 +5,8 @@ import Heading from "../Heading/Heading";
 const ArticleCard = () => {
   return (
     <div>
-      <Heading fontWeight="bold" fontSize={14}>Lorem ipsum dolor sit amet.</Heading>
-      <Paragraph fontWeight="regular" fontSize={12}>
+      <Heading fontWeight="bold" fontSize={12}>Lorem ipsum dolor sit amet.</Heading>
+      <Paragraph fontWeight="regular" fontSize={10}>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi minima
         voluptatibus at ab atque officiis, ipsa totam. Ullam amet facere
         possimus eveniet mollitia non reprehenderit iusto expedita, illo fugiat

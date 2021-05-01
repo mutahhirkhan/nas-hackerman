@@ -6,7 +6,9 @@
     box-sizing: border-box;
     font-family: var(--font-family);
 }
-
+html{
+    background: var(--grey);
+}
 :root{
     --primary-color: #fbc91b;
     --black-text: #000000cc;  
