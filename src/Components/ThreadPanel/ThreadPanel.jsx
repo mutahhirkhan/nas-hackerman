@@ -8,6 +8,8 @@ const ThreadPanel = () => {
             <ArticleCard/>
             <ArticleCard/>
             <ArticleCard/>
+            <ArticleCard/>
+            <ArticleCard/>
             
         </div>
     )
