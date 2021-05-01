@@ -2,7 +2,8 @@ import React from "react";
 import Paragraph from "../Paragraph/Paragraph";
 import Heading from "../Heading/Heading";
 
-const ArticleCard = () => {
+const ArticleCard = (props) => {
+  console.log(props)
   return (
     <div>
       <Heading fontWeight="bold" fontSize={12}>Lorem ipsum dolor sit amet.</Heading>

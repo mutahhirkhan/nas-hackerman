@@ -5,6 +5,8 @@ import { connect } from "react-redux";
 import { switchToNew, switchToPast } from './../../Redux/switcher/switcherActions';
 
 const ThreadSwitch = ({switchToNew, switchToPast, switchValue}) => {
+  var [bgColor, setBgColor] = React.useState("new")
+
     var changeColor = (e) => {
         console.log(e.target.style.background)
         if(switchValue.new)
@@ -14,7 +16,6 @@ const ThreadSwitch = ({switchToNew, switchToPast, switchValue}) => {
         else e.target.style.background = ""
     }
 
-    var [bgColor, setBgColor] = React.useState("new")
   return (
     <div className="switcher">
       
@@ -37,7 +38,7 @@ var actions = {
 }
 
 var mapState = (state) => ({
-    switchValue: state.switchReducer
+    switchValue: state.switch
 })
 
 export default connect(mapState, actions)(ThreadSwitch);
