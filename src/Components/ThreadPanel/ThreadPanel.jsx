@@ -13,7 +13,7 @@ const ThreadPanel = ({newArticles,SwitchValue, pastArticles}) => {
     // console.log(articles)
     return (
         <div className="threadPanel">
-            {newArticles.map((comment) =>  <ArticleCard key={comment.id} {...comment}/>)}
+            {articles.map((comment) =>  <ArticleCard key={comment.id} {...comment}/>)}
             {/* <ArticleCard/>
             <ArticleCard/>
             <ArticleCard/>

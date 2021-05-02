@@ -6,25 +6,41 @@ import { switchToNew, switchToPast } from './../../Redux/switcher/switcherAction
 
 const ThreadSwitch = ({switchToNew, switchToPast, switchValue}) => {
   var [bgColor, setBgColor] = React.useState("new")
-
-    var changeColor = (e) => {
-        console.log(e.target.style.background)
-        if(switchValue.new)
-            e.target.style.background = `${"var(--primary-color)"}`
-        if(switchValue.past)
-            e.target.style.background = `${"var(--primary-color)"}`
-        else e.target.style.background = ""
+  
+  var changeColor = (e) => {
+    console.log(bgColor+"bgcolor")
+    if(bgColor==="new")
+    {
+      console.log('new')
+      document.querySelector(".option1").style.background=`${"var(--primary-color)"}`
+      document.querySelector(".option2").style.background=`none`
+      // document.querySelector(".option1").classList.add("addColor")
+      // document.querySelector(".option2").classList.remove("addColor")
     }
+    if(bgColor === "past")
+    {
+      console.log('past')
+      document.querySelector(".option1").style.background="none"
+      document.querySelector(".option2").style.background=`${"var(--primary-color)"}`
 
-  return (
+      // document.querySelector(".option1").classList.remove("addColor")
+      // document.querySelector(".option2").classList.add("addColor")
+    }
+  }
+  React.useEffect(() => {
+    changeColor()
+  },[])
+      
+      return (
     <div className="switcher">
       
-        {switchValue.new === "selected"}
+        {/* {switchValue.new === "selected"} */}
       <div
-      onClick={switchToNew} className="option option1">
+      onClick={() => {setBgColor("new"); switchToNew(); changeColor(); }} className="option option1">
         <Heading fontWeight="extra" fontSize={10}>New</Heading>
       </div>
-      <div onClick={switchToPast} className="option option2">
+      <div 
+      onClick={() => {setBgColor("past"); switchToPast(); changeColor(); }} className="option option2">
         <Heading fontWeight="extra" fontSize={10}>Past</Heading>
       </div>
 
