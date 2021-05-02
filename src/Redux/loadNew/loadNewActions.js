@@ -1,7 +1,6 @@
 import { LOAD_NEW_ARTICLES } from "./loadNewConstants";
 import { fetchData } from "./../../utility/utility";
 import axios  from 'axios';
-var initialValueForApi = 0
 var newArticleIds = 0
 
 export var loadNewArticles = () => async (dispatch) => {

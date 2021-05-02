@@ -1,8 +1,6 @@
-import { LOAD_PAST_ARTICLES, LOAD_NEW_ARTICLES } from "./loadPastConstants";
+import { LOAD_PAST_ARTICLES } from "./loadPastConstants";
 import { fetchData } from "../../utility/utility";
-import axios  from 'axios';
 var initialValueForApi = 0
-var newArticleIds = 0
 export var loadPastArticles = () => async (dispatch) => {
   try {
     //utility function to load data

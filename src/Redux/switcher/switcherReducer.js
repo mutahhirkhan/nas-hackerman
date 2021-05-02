@@ -5,7 +5,7 @@ var initialState = {
 };
 
 var switchReducer = (state = initialState, actions) => {
-  var { type, payload } = actions;
+  var { type } = actions;
   switch (type) {
     case SWITCH_TO_NEW:
       // return state = { new: "selected", past: null,};
