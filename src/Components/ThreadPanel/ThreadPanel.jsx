@@ -3,12 +3,12 @@ import "./ThreadPanel.css"
 import ArticleCard from './../ArticleCard/ArticleCard';
 import { connect } from 'react-redux';
 
-const ThreadPanel = ({moreComments}) => {
+const ThreadPanel = ({newArticles}) => {
     // console.log(moreComments)
     return (
         <div className="threadPanel">
 
-            {moreComments.map((comment) =>  <ArticleCard key={comment.id} {...comment}/>)}
+            {newArticles.map((comment) =>  <ArticleCard key={comment.id} {...comment}/>)}
             {/* <ArticleCard/>
             <ArticleCard/>
             <ArticleCard/>
@@ -20,7 +20,9 @@ const ThreadPanel = ({moreComments}) => {
 }
 
 var mapState = (state) => ({
-  moreComments: state.comments
+  pastArticles: state.pastArticles,
+  newArticles: state.newArticles,
+  SwitchValue: state.SwitchValue
 })
 
 export default connect(mapState)(ThreadPanel)

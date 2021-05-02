@@ -1,21 +1,33 @@
 import React from "react";
 import { connect } from "react-redux";
-import { loadMoreArticles, loadNewArticles } from "./../../Redux/loadMore/loadMoreActions";
+import { loadPastArticles } from "../../Redux/loadPast/loadPastActions";
+import { loadNewArticles } from './../../Redux/loadNew/loadNewActions';
 import Heading from "src/Components/Heading/Heading";
 import "./LoadMoreButton.css";
 
-const LoadMoreButton = ({ loadMoreArticles, loadNewArticles }) => {
+const LoadMoreButton = ({ loadPastArticles, loadNewArticles, switchValue }) => {
+  
+  var loadArticles = () => {
+    if(switchValue.new === "selected") {
+      console.log("new")
+      loadNewArticles();
+    }
+    else if(switchValue.past === "selected"){
+      console.log("past")
+      loadPastArticles();
+    }
+  }
   // console.log(moreComments)
   // const [comments, setComments] = React.useState([...moreComments]);
 
   React.useEffect(() => {
     //CDM
-    loadMoreArticles();
+    loadPastArticles();
     loadNewArticles()
   }, []);
   console.log();
   return (
-    <div className="loadMoreBtn center" onClick={loadMoreArticles}>
+    <div className="loadMoreBtn center" onClick={loadArticles}>
       <button className="loadMoreContent">
         <Heading fontWeight="bold" fontSize={10}>
           Load More
@@ -26,12 +38,13 @@ const LoadMoreButton = ({ loadMoreArticles, loadNewArticles }) => {
 };
 
 var actions = {
-  loadMoreArticles,
+  loadPastArticles,
   loadNewArticles,
 };
 
-// var mapState = (state) => ({
-//   moreComments: state.comments
-// })
+var mapState = (state) => ({
+  newArticles: state.newArticles,
+  switchValue: state.switch
+})
 
-export default connect(null, actions)(LoadMoreButton);
+export default connect(mapState, actions)(LoadMoreButton);

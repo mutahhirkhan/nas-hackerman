@@ -1,0 +1,1 @@
+export const LOAD_PAST_ARTICLES = "LOAD_PAST_ARTICLES";
