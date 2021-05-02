@@ -1,16 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
-import { loadMoreArticles } from "./../../Redux/loadMore/loadMoreActions";
+import { loadMoreArticles, loadNewArticles } from "./../../Redux/loadMore/loadMoreActions";
 import Heading from "src/Components/Heading/Heading";
 import "./LoadMoreButton.css";
 
-const LoadMoreButton = ({ loadMoreArticles }) => {
+const LoadMoreButton = ({ loadMoreArticles, loadNewArticles }) => {
   // console.log(moreComments)
   // const [comments, setComments] = React.useState([...moreComments]);
 
   React.useEffect(() => {
     //CDM
     loadMoreArticles();
+    loadNewArticles()
   }, []);
   console.log();
   return (
@@ -26,6 +27,7 @@ const LoadMoreButton = ({ loadMoreArticles }) => {
 
 var actions = {
   loadMoreArticles,
+  loadNewArticles,
 };
 
 // var mapState = (state) => ({
