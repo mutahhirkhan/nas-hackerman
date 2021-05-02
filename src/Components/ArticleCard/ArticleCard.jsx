@@ -13,7 +13,7 @@ const ArticleCard = ({title, text, by, url, time, descendants}) => {
   
   return (
       <Link to={{ pathname: `${url}` }} target="_blank">
-    <div style={{borderRadius:"10px", boxShadow: "0 5px 10px 2px rgba(0,0,0,0.15)", padding: "10px", margin:"5px 10px 5px 5px" }}>
+    <div style={{borderRadius:"10px", boxShadow: "0 5px 10px 2px rgba(0,0,0,0.15)", padding: "10px", margin:"5px 10px 5px 5px", display:"flex", flexFlow:"column", rowGap:"7px" }}>
       {title ? 
       <Heading fontWeight="bold" fontSize={12}>{title}</Heading> 
       : <Heading fontWeight="bold" fontSize={12}>Lorem ipsum dolor sit amet.</Heading>
