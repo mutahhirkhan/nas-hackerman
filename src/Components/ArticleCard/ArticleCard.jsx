@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const ArticleCard = ({title, text, by, url}) => {
   console.log(title, text, by, url)
   return (
-    <Link to={url ? url : "/"}>
+      <Link to={{ pathname: `${url}` }} target="_blank">
     <div>
       {title ? 
       <Heading fontWeight="bold" fontSize={12}>{title}</Heading> 
