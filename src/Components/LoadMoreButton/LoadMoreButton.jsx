@@ -1,10 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import { loadMoreArticles } from "./../../Redux/loadMore/loadMoreActions";
-import Heading  from "src/Components/Heading/Heading";
+import Heading from "src/Components/Heading/Heading";
 import "./LoadMoreButton.css";
 
-const LoadMoreButton = ({ loadMoreArticles}) => {
+const LoadMoreButton = ({ loadMoreArticles }) => {
   // console.log(moreComments)
   // const [comments, setComments] = React.useState([...moreComments]);
 
@@ -12,12 +12,14 @@ const LoadMoreButton = ({ loadMoreArticles}) => {
     //CDM
     loadMoreArticles();
   }, []);
-  console.log()
+  console.log();
   return (
-    <div className="loadMoreBtn center">
-      <button className="loadMoreContent" onClick={() => loadMoreArticles()}>
-        <Heading fontWeight="bold" fontSize={10}>Load More</Heading>
-        </button>
+    <div className="loadMoreBtn center" onClick={loadMoreArticles}>
+      <button className="loadMoreContent">
+        <Heading fontWeight="bold" fontSize={10}>
+          Load More
+        </Heading>
+      </button>
     </div>
   );
 };
