@@ -10,10 +10,9 @@ const ThreadPanel = ({newArticles,SwitchValue, pastArticles}) => {
         articles = newArticles;
     else if(SwitchValue.past === "selected")
         articles = pastArticles;
-    console.log(articles)
+    // console.log(articles)
     return (
         <div className="threadPanel">
-
             {newArticles.map((comment) =>  <ArticleCard key={comment.id} {...comment}/>)}
             {/* <ArticleCard/>
             <ArticleCard/>

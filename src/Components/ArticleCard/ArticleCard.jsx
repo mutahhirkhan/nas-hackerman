@@ -6,13 +6,10 @@ import svgClock from "src/Assets/clock.svg"
 
 const ArticleCard = ({title, text, by, url, time, descendants}) => {
   
-  // var date = new Date(time).toLocaleDateString("en-US")
-  // var inHours = new Date(time).toLocaleTimeString("en-US")
-  // time = date.concat(` ${inHours}`)
-  // console.log(time)
+  //time converted to date time format
   time = String(new Date(time * 1000));
-  var temptime = String(new Date(1619899730 * 1000));
-  // console.log(temptime)
+  //then splitted into time and time zone sections
+  time = time.split("GMT")[0]
   
   
   return (
