@@ -5,7 +5,6 @@ export var fetchData = async (link) => {
     // var promises = [fetch(String(link)).json()]
     // var data = await Promise.all(promises)
     var {data} = await axios.get(String(link))
-    console.log(data)
 
     return data;
   } catch (error) {

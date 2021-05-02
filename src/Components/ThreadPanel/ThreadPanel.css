@@ -1,6 +1,8 @@
 .threadPanel {
   height: 55vh;
   overflow-y: scroll;
+  gap: 1em;
+  display: grid;
 }
 /* width */
 ::-webkit-scrollbar {
