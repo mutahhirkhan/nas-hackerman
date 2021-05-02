@@ -2,12 +2,18 @@ import React from "react";
 import Paragraph from "../Paragraph/Paragraph";
 import Heading from "../Heading/Heading";
 import { Link } from "react-router-dom";
+import svgClock from "src/Assets/clock.svg"
 
-const ArticleCard = ({title, text, by, url}) => {
-  // console.log(title, text, by, url)
+const ArticleCard = ({title, text, by, url, time, descendants}) => {
+  
+  var date = new Date(time).toLocaleDateString("en-US")
+  var inHours = new Date(time).toLocaleTimeString("en-US")
+  time = date.concat(` ${inHours}`)
+  // console.log(time)
+  
   return (
       <Link to={{ pathname: `${url}` }} target="_blank">
-    <div>
+    <div style={{borderRadius:"10px", boxShadow: "0 5px 10px 2px rgba(0,0,0,0.15)", padding: "10px", margin:"5px 10px 5px 5px" }}>
       {title ? 
       <Heading fontWeight="bold" fontSize={12}>{title}</Heading> 
       : <Heading fontWeight="bold" fontSize={12}>Lorem ipsum dolor sit amet.</Heading>
@@ -22,13 +28,18 @@ const ArticleCard = ({title, text, by, url}) => {
         ratione ut eos?
       </Paragraph>
       }
-      {by ? 
-      <Paragraph fontWeight="regular" fontSize={8}>{by}</Paragraph>
-      : <Paragraph fontWeight="regular" fontSize={8}>Anonymous</Paragraph>
-      }
-      
+     
+      <div style={{display:"flex", gap:"3px", alignItems:"center"}}>
+        <img src={svgClock} alt="svgClockk"  width="13px"/>
+        {time ? <Paragraph fontWeight="regular" fontSize={8}>{time}</Paragraph>
+        : <Paragraph fontWeight="regular" fontSize={8}>Time Not Available</Paragraph>
+        }
+        <p> | </p> 
+        {descendants ? <Paragraph fontWeight="regular" fontSize={8}>{descendants} Comments</Paragraph>
+        : <Paragraph fontWeight="regular" fontSize={8}>0 Comments</Paragraph>
+        }
+      </div>
     </div>
-    ________________________________________________________
     </Link>
   );
 };
