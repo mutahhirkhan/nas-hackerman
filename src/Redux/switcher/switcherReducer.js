@@ -8,15 +8,13 @@ var switchReducer = (state = initialState, actions) => {
   var { type, payload } = actions;
   switch (type) {
     case SWITCH_TO_NEW:
-      return (state = {
-        new: "selected",
-        past: null,
-      });
+      // return state = { new: "selected", past: null,};
+      return {...state, new:"selected", past:null}
+
     case SWITCH_TO_PAST:
-      return (state = {
-        new: null,
-        past: "selected",
-      });
+      return {...state, past:"selected", new:null}
+
+      // return state = {new: null, past: "selected",};
 
     default:
       return state;

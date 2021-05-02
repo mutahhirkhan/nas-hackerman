@@ -21,10 +21,10 @@ const ThreadSwitch = ({switchToNew, switchToPast, switchValue}) => {
       
         {switchValue.new === "selected"}
       <div
-      onClick={switchToNew, changeColor} className="option option1">
+      onClick={switchToNew} className="option option1">
         <Heading fontWeight="extra" fontSize={10}>New</Heading>
       </div>
-      <div onClick={switchToPast, changeColor} className="option option2">
+      <div onClick={switchToPast} className="option option2">
         <Heading fontWeight="extra" fontSize={10}>Past</Heading>
       </div>
 
