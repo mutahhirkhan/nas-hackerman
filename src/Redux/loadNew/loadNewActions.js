@@ -6,15 +6,14 @@ var newArticleIds = 0
 
 export var loadNewArticles = () => async (dispatch) => {
     try {
-      console.log("here")
       var threads = []
       //new storie's ids array
       var newIds = await (await axios.get("https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty")).data
     //   newIds = newIds.data
-    console.log(newIds)
+    // console.log(newIds)
       var limit = newArticleIds+5
       for (let i = newArticleIds; i < limit; i++) {
-        console.log(newArticleIds)
+        // console.log(newArticleIds)
         if(newIds[i])
         {
           var article = await fetchData(`https://hacker-news.firebaseio.com/v0/item/${newIds[i]}.json?print=pretty`);
@@ -30,7 +29,7 @@ export var loadNewArticles = () => async (dispatch) => {
         }
       });
       
-      console.log(threads)
+    //   console.log(threads)
   
     } catch (error) { 
       console.log(error)

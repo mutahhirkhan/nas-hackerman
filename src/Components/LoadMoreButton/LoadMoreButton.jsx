@@ -9,11 +9,11 @@ const LoadMoreButton = ({ loadPastArticles, loadNewArticles, switchValue }) => {
   
   var loadArticles = () => {
     if(switchValue.new === "selected") {
-      console.log("new")
+      // console.log("new")
       loadNewArticles();
     }
     else if(switchValue.past === "selected"){
-      console.log("past")
+      // console.log("past")
       loadPastArticles();
     }
   }
@@ -25,7 +25,6 @@ const LoadMoreButton = ({ loadPastArticles, loadNewArticles, switchValue }) => {
     loadPastArticles();
     loadNewArticles()
   }, []);
-  console.log();
   return (
     <div className="loadMoreBtn center" onClick={loadArticles}>
       <button className="loadMoreContent">
