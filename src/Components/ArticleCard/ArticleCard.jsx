@@ -4,7 +4,7 @@ import Heading from "../Heading/Heading";
 import { Link } from "react-router-dom";
 
 const ArticleCard = ({title, text, by, url}) => {
-  console.log(title, text, by, url)
+  // console.log(title, text, by, url)
   return (
       <Link to={{ pathname: `${url}` }} target="_blank">
     <div>
