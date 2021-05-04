@@ -1,5 +1,6 @@
 import { LOAD_NEW_ARTICLES } from "./loadNewConstants";
 import { fetchData } from "./../../utility/utility";
+import {v4 as uuid} from "uuid"
 import axios  from 'axios';
 var newArticleIds = 0
 
@@ -15,7 +16,11 @@ export var loadNewArticles = () => async (dispatch) => {
         // console.log(newArticleIds)
         if(newIds[i])
         {
-          var article = await fetchData(`https://hacker-news.firebaseio.com/v0/item/${newIds[i]}.json?print=pretty`);
+          var newArticle = await fetchData(`https://hacker-news.firebaseio.com/v0/item/${newIds[i]}.json?print=pretty`);
+          var article = newArticle
+          if(!newArticle) console.log(newIds[i])
+          article.uid = uuid()
+          // console.log(article)
           threads.push(article)
           newArticleIds+=1
         }
