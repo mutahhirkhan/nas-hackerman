@@ -1,8 +1,7 @@
-.topHeader{
+#topHeader{
     width: 100%;
     font-family: var(--font-family);
     font-weight: var(--extra-bold);
-    /* height: 10vh; */
     background-color: white;
     flex-flow: initial;
     font-size: 1.5rem;
