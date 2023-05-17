@@ -33,8 +33,8 @@ const Paragraph = ({
         color,
         ...style,
       }}
+      dangerouslySetInnerHTML={{__html: children}}
     >
-      {children}
     </div>
   );
 };
