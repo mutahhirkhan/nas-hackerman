@@ -8,11 +8,11 @@ import "./LoadMoreButton.css";
 const LoadMoreButton = ({ loadPastArticles, loadNewArticles, switchValue }) => {
   
   var loadArticles = () => {
-    if(switchValue.new === "selected") {
+    if(switchValue === true) {  //true for new posts
       // console.log("new")
       loadNewArticles();
     }
-    else if(switchValue.past === "selected"){
+    else if(switchValue === false){ //false for past posts
       // console.log("past")
       loadPastArticles();
     }

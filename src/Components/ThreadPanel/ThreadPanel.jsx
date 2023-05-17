@@ -6,9 +6,9 @@ import { connect } from 'react-redux';
 const ThreadPanel = ({newArticles,SwitchValue, pastArticles}) => {
     // console.log(newArticles,SwitchValue, pastArticles)
     var articles = []
-    if(SwitchValue.new === "selected") 
+    if(SwitchValue === true) // true for new posts 
         articles = newArticles;
-    else if(SwitchValue.past === "selected")
+    else if(SwitchValue === false) // false for past posts
         articles = pastArticles;
     // console.log(articles)
     return (
