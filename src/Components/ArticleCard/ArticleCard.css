@@ -1,0 +1,14 @@
+.card {
+	border-radius: 10px;
+	box-shadow: 0 5px 10px 2px rgba(0, 0, 0, 0.15);
+	padding: 10px;
+	margin: 5px 10px 5px 5px;
+	display: flex;
+	flex-flow: column;
+	row-gap: 7px;
+}
+.card-details {
+	display: flex;
+	align-items: center;
+	gap: 3px;
+}
