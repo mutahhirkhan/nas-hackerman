@@ -11,6 +11,8 @@ const LoadMoreButton = ({ loadPastArticles, loadNewArticles, switchValue, newArt
   // console.log(newArticlesLoading, pastArticlesLoading)
   
 	const loadArticles = () => {
+		//do not load if already loading
+		if(newArticlesLoading || pastArticlesLoading) return;
 		if (switchValue === true) {
 			//true for new posts
 			loadNewArticles();
@@ -29,7 +31,7 @@ const LoadMoreButton = ({ loadPastArticles, loadNewArticles, switchValue, newArt
 	}, []);
 
 	return (
-		<div className="loadMoreBtn center" onClick={loadArticles}>
+		<div  className="loadMoreBtn center" onClick={loadArticles}>
 			<button className="loadMoreContent">
 				{(newArticlesLoading || pastArticlesLoading) ? (
 					<Loader></Loader>
