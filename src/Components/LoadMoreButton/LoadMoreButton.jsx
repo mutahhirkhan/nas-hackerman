@@ -1,49 +1,57 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { loadPastArticles } from "../../Redux/loadPast/loadPastActions";
-import { loadNewArticles } from './../../Redux/loadNew/loadNewActions';
+import { loadNewArticles } from "./../../Redux/loadNew/loadNewActions";
 import Heading from "src/Components/Heading/Heading";
 import "./LoadMoreButton.css";
+import Loader from "../Loader/Loader";
 
-const LoadMoreButton = ({ loadPastArticles, loadNewArticles, switchValue }) => {
+const LoadMoreButton = ({ loadPastArticles, loadNewArticles, switchValue, newArticlesLoading, pastArticlesLoading }) => {
+
+  // console.log(newArticlesLoading, pastArticlesLoading)
   
-  var loadArticles = () => {
-    if(switchValue === true) {  //true for new posts
-      // console.log("new")
-      loadNewArticles();
-    }
-    else if(switchValue === false){ //false for past posts
-      // console.log("past")
-      loadPastArticles();
-    }
-  }
-  // console.log(moreComments)
-  // const [comments, setComments] = React.useState([...moreComments]);
+	const loadArticles = () => {
+		if (switchValue === true) {
+			//true for new posts
+			loadNewArticles();
+		} else if (switchValue === false) {
+			//false for past posts
+			loadPastArticles();
+		}
+	};
+	// console.log(moreComments)
+	// const [comments, setComments] = useState([...moreComments]);
 
-  React.useEffect(() => {
-    //CDM
-    loadPastArticles();
-    loadNewArticles()
-  }, []);
-  return (
-    <div className="loadMoreBtn center" onClick={loadArticles}>
-      <button className="loadMoreContent">
-        <Heading fontWeight="bold" fontSize={10}>
-          Load More
-        </Heading>
-      </button>
-    </div>
-  );
+	useEffect(() => {
+		//CDM
+		loadPastArticles();
+		loadNewArticles();
+	}, []);
+
+	return (
+		<div className="loadMoreBtn center" onClick={loadArticles}>
+			<button className="loadMoreContent">
+				{(newArticlesLoading || pastArticlesLoading) ? (
+					<Loader></Loader>
+				) : (
+					<Heading fontWeight="bold" fontSize={10}>
+						Load More
+					</Heading>
+				)}
+			</button>
+		</div>
+	);
 };
 
 var actions = {
-  loadPastArticles,
-  loadNewArticles,
+	loadPastArticles,
+	loadNewArticles,
 };
 
 var mapState = (state) => ({
-  newArticles: state.newArticles,
-  switchValue: state.switch
-})
+	newArticlesLoading: state.newArticles.loading,
+	pastArticlesLoading: state.pastArticles.loading,
+	switchValue: state.switch,
+});
 
 export default connect(mapState, actions)(LoadMoreButton);
