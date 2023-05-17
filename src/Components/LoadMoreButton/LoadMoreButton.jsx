@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { connect } from "react-redux";
 import { loadPastArticles } from "../../Redux/loadPast/loadPastActions";
 import { loadNewArticles } from "./../../Redux/loadNew/loadNewActions";
@@ -28,7 +28,7 @@ const LoadMoreButton = ({ loadPastArticles, loadNewArticles, switchValue, newArt
 		//CDM
 		loadPastArticles();
 		loadNewArticles();
-	}, []);
+	}, [loadPastArticles, loadNewArticles]);
 
 	return (
 		<div  className="loadMoreBtn center" onClick={loadArticles}>
