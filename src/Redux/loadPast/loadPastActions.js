@@ -1,6 +1,5 @@
 import { LOAD_PAST_ARTICLES, LOAD_PAST_ARTICLES_SUCCESS } from "./loadPastConstants";
 import { fetchData, POST_FETCH_LIMIT } from "../../utility/utility";
-var initialValueForApi = 0;
 
 export const loadPastArticles = () => async (dispatch) => {
 	try {
@@ -13,7 +12,7 @@ export const loadPastArticles = () => async (dispatch) => {
 		//utility function to load data
 		const articleResponse = [];
 		for (let i = 0; i < POST_FETCH_LIMIT; i++) {
-			articleResponse.push(fetchData(`https://hacker-news.firebaseio.com/v0/item/${(initialValueForApi += 1)}.json?print=pretty`));
+			articleResponse.push(fetchData(`https://hacker-news.firebaseio.com/v0/item/${i + 1}.json?print=pretty`));
 		}
 
 		const threads = await Promise.all(articleResponse);

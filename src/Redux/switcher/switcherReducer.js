@@ -1,8 +1,8 @@
 import { SWITCH_TO_NEW, SWITCH_TO_PAST } from "./switcherConstants";
-var initialState = true;
+const initialState = true;
 
-var switchReducer = (state = initialState, actions) => {
-  var { type } = actions;
+const switchReducer = (state = initialState, actions) => {
+  const { type } = actions;
   switch (type) {
     case SWITCH_TO_NEW:
       return state = true;

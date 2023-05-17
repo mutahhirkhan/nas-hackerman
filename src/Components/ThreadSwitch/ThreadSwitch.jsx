@@ -5,9 +5,9 @@ import { connect } from "react-redux";
 import { switchToNew, switchToPast } from "./../../Redux/switcher/switcherActions";
 
 const ThreadSwitch = ({ switchToNew, switchToPast }) => {
-	var [isNew, setIsNewPost] = React.useState(true);
+	const [isNew, setIsNewPost] = React.useState(true);
 
-	var toggleNews = (name) => {
+	const toggleNews = (name) => {
 		if (name === "new") {
 			switchToNew();
 			setIsNewPost(true);
@@ -33,12 +33,12 @@ const ThreadSwitch = ({ switchToNew, switchToPast }) => {
 	);
 };
 
-var actions = {
+const actions = {
 	switchToNew,
 	switchToPast,
 };
 
-// var mapState = (state) => ({
+// const mapState = (state) => ({
 // 	switchValue: state.switch,
 // });
 

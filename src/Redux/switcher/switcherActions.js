@@ -1,6 +1,6 @@
 import { SWITCH_TO_NEW, SWITCH_TO_PAST } from "./switcherConstants"
 
-export var switchToNew = () => (dispatch) => {
+export const switchToNew = () => (dispatch) => {
     try {
         // console.log("new")  
         dispatch({
@@ -11,7 +11,7 @@ export var switchToNew = () => (dispatch) => {
     }
 }
 
-export var switchToPast = () => (dispatch) => {
+export const switchToPast = () => (dispatch) => {
     try {
         // console.log("past")
         dispatch({

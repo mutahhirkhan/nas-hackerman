@@ -1,11 +1,11 @@
 import { LOAD_PAST_ARTICLES, LOAD_PAST_ARTICLES_SUCCESS } from './loadPastConstants';
-var initialState = {
+const initialState = {
     articles: [],
     loading: false,
 };
  
-var loadMoreReducer = (state = initialState, actions) => {
-    var {type, payload} = actions
+const loadMoreReducer = (state = initialState, actions) => {
+    const {type, payload} = actions
     switch (type) {
         case LOAD_PAST_ARTICLES:
             return {

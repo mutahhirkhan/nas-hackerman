@@ -11,7 +11,6 @@ export const loadNewArticles = () => async (dispatch) => {
 			},
 		});
 
-		// var threads = []
 		const newArticle = [];
 
 		//new storie's ids array

@@ -1,11 +1,11 @@
 import { LOAD_NEW_ARTICLES, LOAD_NEW_ARTICLES_SUCCESS } from "./loadNewConstants";
-var initialState = {
+const initialState = {
 	articles: [],
 	loading: false,
 };
 
-var loadNewReducer = (state = initialState, actions) => {
-	var { type, payload } = actions;
+const loadNewReducer = (state = initialState, actions) => {
+	const { type, payload } = actions;
 	switch (type) {
 		case LOAD_NEW_ARTICLES:
 			return {
