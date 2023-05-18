@@ -7,6 +7,7 @@
 		"@testing-library/react": "^11.1.0",
 		"@testing-library/user-event": "^12.1.10",
 		"axios": "^0.21.1",
+		"p-limit": "3.1.0",
 		"react": "^17.0.2",
 		"react-content-loader": "^6.2.1",
 		"react-dom": "^17.0.2",
@@ -20,7 +21,7 @@
 		"web-vitals": "^1.0.1"
 	},
 	"scripts": {
-		"start": "react-scripts start",
+		"start": "if [ \"$NODE_ENV\" = \"production\" ]; then NODE_OPTIONS=--openssl-legacy-provider react-scripts start; else  react-scripts start; fi",
 		"build": "if [ \"$NODE_ENV\" = \"production\" ]; then NODE_OPTIONS=--openssl-legacy-provider react-scripts build; else react-scripts build; fi",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject"
