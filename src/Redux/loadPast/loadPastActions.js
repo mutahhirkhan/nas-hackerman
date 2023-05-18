@@ -18,7 +18,9 @@ export const loadPastArticles = () => async (dispatch, getState) => {
 			articleResponse.push(fetchData(`https://hacker-news.firebaseio.com/v0/item/${PreviousCount + i}.json?print=pretty`));
 		}
 
-		const threads = await Promise.all(articleResponse);
+		const rawThreads = await Promise.all(articleResponse);
+		const threads = [] 
+		rawThreads.forEach(thread => threads.push(thread.data))
 		// console.log("old threads", threads);
 
 		dispatch({

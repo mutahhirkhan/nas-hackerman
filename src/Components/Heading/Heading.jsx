@@ -30,8 +30,10 @@ const Header = ({
       style={{ fontWeight: fontWeightValue, fontSize: `${fontSizeValue}em`, color,
         ...style,
       }}
+      dangerouslySetInnerHTML={{__html: children}}
+
     >
-      {children}
+      {/* {children} */}
     </div>
   );
 };
