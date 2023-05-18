@@ -1,10 +1,13 @@
 import { LOAD_NEW_ARTICLES, LOAD_NEW_ARTICLES_SUCCESS } from "./loadNewConstants";
 import { fetchData, POST_FETCH_LIMIT } from "./../../utility/utility";
 import axios from "axios";
-const pLimit = require('p-limit');
-//not needed when already calling concurrently using a loop.
-// example fetchDataLimit(() => fetchData(....))
-const fetchDataLimit = pLimit(50); // Limit to 50 concurrent requests
+/**
+	* 
+	const pLimit = require('p-limit');
+	//not needed when already calling concurrently using a loop.
+	// example fetchDataLimit(() => fetchData(....))
+	const fetchDataLimit = pLimit(50); // Limit to 50 concurrent requests
+	*/
 
 
 export const loadNewArticles = () => async (dispatch, getState) => {
