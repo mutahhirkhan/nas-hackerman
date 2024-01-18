@@ -37,6 +37,7 @@ const ThreadPanel = ({
   }, [newArticlesLoading, pastArticlesLoading])
 
   const lastArticleRef = useCallback(node => {
+    console.log(observer);
     // if (newArticlesLoading || pastArticlesLoading) return;
     // if (observer.current) observer.current.disconnect();
 
