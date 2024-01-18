@@ -1,7 +1,8 @@
 .threadPanel {
-  height: 55vh;
+  /* height: 55vh; */
   overflow-y: scroll;
   gap: 1em;
+  /* height: inherit; */
   display: grid;
 }
 /* width */

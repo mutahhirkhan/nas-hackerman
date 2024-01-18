@@ -8,9 +8,12 @@
 html {
   background: var(--grey);
 }
-a, a:visited, a:hover, a:active {
-    text-decoration: none;
-    color: inherit;
+a,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  color: inherit;
 }
 /* html a:visited {
   color: initial;
@@ -21,10 +24,11 @@ a, a:visited, a:hover, a:active {
   --black-text: #000000cc;
   --grey-text: #00000080;
   --grey: #f2f2f2;
-  --font-family: "Open Sans", sans-serif;
+  --font-family: 'Open Sans', sans-serif;
   --regular: 400;
   --bold: 700;
   --extra-bold: 800;
+  --header-height: 10vh;
 }
 
 .center {

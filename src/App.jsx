@@ -1,6 +1,6 @@
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import "./App.css";
-import Home from "./Pages/Home/Home";
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import './App.css'
+import Home from './Pages/Home/Home'
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
         </Switch>
       </BrowserRouter>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

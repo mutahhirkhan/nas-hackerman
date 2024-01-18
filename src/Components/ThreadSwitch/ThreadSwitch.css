@@ -1,15 +1,14 @@
-.switcher{
-    display: flex;
-    gap: 10px;
-    padding: 5px 0;
+.switcher {
+  display: flex;
+  /* gap: 10px; */
 }
 
-.option{
-    padding: 2px 10px;
-    border-radius: 20px;
-    cursor: pointer;
-    /* background: var(--primary-color); */
+.option {
+  padding: 2px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  /* background: var(--primary-color); */
 }
-.addColor{
-    background: var(--primary-color);
+.addColor {
+  background: var(--primary-color);
 }
