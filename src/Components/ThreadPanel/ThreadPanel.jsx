@@ -54,7 +54,7 @@ const ThreadPanel = ({
 
       if (node) observer.current.observe(node)
     },
-    [newArticlesLoading, pastArticlesLoading, switchValue],
+    [newArticlesLoading, pastArticlesLoading, switchValue, loadNewArticles, loadPastArticles],
   )
 
   return (
