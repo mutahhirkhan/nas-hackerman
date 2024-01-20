@@ -23,35 +23,39 @@ const ThreadPanel = ({
   newArticles: { articles: newArticles, loading: newArticlesLoading },
   switchValue,
   pastArticles: { articles: pastArticles, loading: pastArticlesLoading },
+  loadPastArticles,
+  loadNewArticles,
 }) => {
   const [intitalLoading, setIntitalLoading] = useState(true)
-  console.log('new', newArticlesLoading, '- past', pastArticlesLoading)
+  // console.log('new', newArticlesLoading, '- past', pastArticlesLoading)
   const observer = useRef()
 
   useEffect(() => {
+    //artifically showing skeleton because of rapid fetching of data
     if (newArticlesLoading === false && pastArticlesLoading === false) {
       setTimeout(() => {
         setIntitalLoading(prev => (prev = false))
       }, 2500)
     }
-  }, [newArticlesLoading, pastArticlesLoading])
+  }, [newArticlesLoading, pastArticlesLoading, switchValue])
 
-  const lastArticleRef = useCallback(node => {
-    console.log(observer);
-    // if (newArticlesLoading || pastArticlesLoading) return;
-    // if (observer.current) observer.current.disconnect();
+  const lastArticleRef = useCallback(
+    node => {
+      if (newArticlesLoading || pastArticlesLoading) return
+      if (observer.current) observer.current.disconnect()
 
-    // observer.current = new IntersectionObserver((entries) => {
-    //   if (entries[0].isIntersecting) {
-    //     // setPageNumber((prevPageNumber) => prevPageNumber + 1);
-    // 1    if (switchValue === true) loadNewArticles();
-    //     else loadPastArticles();
-    //   }
-    // });
+      observer.current = new IntersectionObserver(entries => {
+        console.log(entries[0])
+        if (entries[0].isIntersecting) {
+          if (switchValue) loadNewArticles()
+          else loadPastArticles()
+        }
+      })
 
-    // if (node) observer.current.observe(node);
-    console.log('intersecting', node)
-  }, [])
+      if (node) observer.current.observe(node)
+    },
+    [newArticlesLoading, pastArticlesLoading, switchValue],
+  )
 
   return (
     <div className="threadPanel">
@@ -63,7 +67,7 @@ const ThreadPanel = ({
               return <ArticleCard key={uuid()} {...comment} />
             })
           : pastArticles.map((comment, index) => {
-              if (newArticles.length === index + 1) return <ArticleCard innerRef={lastArticleRef} key={uuid()} {...comment} />
+              if (pastArticles.length === index + 1) return <ArticleCard innerRef={lastArticleRef} key={uuid()} {...comment} />
               return <ArticleCard key={uuid()} {...comment} />
             })}
 

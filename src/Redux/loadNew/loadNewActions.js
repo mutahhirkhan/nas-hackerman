@@ -12,6 +12,7 @@ import axios from 'axios'
 export const loadNewArticles = () => async (dispatch, getState) => {
   try {
     const PreviousCount = getState().newArticles.counter
+    console.log('load new articles api', PreviousCount)
     dispatch({
       type: LOAD_NEW_ARTICLES_SUCCESS,
       payload: {

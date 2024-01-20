@@ -12,10 +12,10 @@ const LoadMoreButton = ({ loadPastArticles, loadNewArticles, switchValue, newArt
   const loadArticles = () => {
     //do not load if already loading
     if (newArticlesLoading || pastArticlesLoading) return
-    if (switchValue === true) {
+    if (switchValue) {
       //true for new posts
       loadNewArticles()
-    } else if (switchValue === false) {
+    } else if (!switchValue) {
       //false for past posts
       loadPastArticles()
     }

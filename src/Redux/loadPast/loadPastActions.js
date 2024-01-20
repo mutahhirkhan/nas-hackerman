@@ -4,7 +4,7 @@ import { fetchData, POST_FETCH_LIMIT } from '../../utility/utility'
 export const loadPastArticles = () => async (dispatch, getState) => {
   try {
     const PreviousCount = getState().pastArticles.counter
-    console.log('🤑 ~ file: loadPastActions.js:7 ~ loadPastArticles ~ counter:', PreviousCount)
+    console.log('load past articles api', PreviousCount)
     dispatch({
       type: LOAD_PAST_ARTICLES_SUCCESS,
       payload: {
