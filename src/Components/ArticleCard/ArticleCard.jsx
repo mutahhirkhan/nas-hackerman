@@ -13,50 +13,28 @@ const ArticleCard = ({ title, text, by, url, time, descendants, innerRef }) => {
 
   return (
     <>
-      <Link ref={innerRef} to={{ pathname: `${url}` }} target="_blank">
-        <div className="card">
-          {title ? (
-            <Heading fontWeight="bold" fontSize={12}>
-              {title}
-            </Heading>
-          ) : (
-            <Heading fontWeight="bold" fontSize={12}>
-              Lorem ipsum dolor sit amet.
-            </Heading>
-          )}
-          {text ? (
-            <Paragraph fontWeight="regular" fontSize={10}>
-              {text}
-            </Paragraph>
-          ) : (
-            <Paragraph fontWeight="regular" fontSize={10}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi minima voluptatibus at ab atque officiis, ipsa totam. Ullam
+      <Link ref={innerRef} to={{ pathname: `${url}` }} target="_blank" className={`${!url && 'no-url'}`}>
+        <div className={`card`}>
+          <Heading fontWeight="bold" fontSize={12}>
+            {title ? title : `Lorem ipsum dolor sit amet.`}
+          </Heading>
+          <Paragraph fontWeight="regular" fontSize={10}>
+            {text
+              ? text
+              : `Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi minima voluptatibus at ab atque officiis, ipsa totam. Ullam
               amet facere possimus eveniet mollitia non reprehenderit iusto expedita, illo fugiat ab quidem, provident architecto
-              voluptatibus sint modi consectetur ratione ut eos?
-            </Paragraph>
-          )}
+              voluptatibus sint modi consectetur ratione ut eos?`}
+          </Paragraph>
 
           <div className="card-details">
             <img src={svgClock} alt="svgClockk" width="13px" />
-            {time ? (
-              <Paragraph fontWeight="regular" fontSize={8}>
-                {time}
-              </Paragraph>
-            ) : (
-              <Paragraph fontWeight="regular" fontSize={8}>
-                Time Not Available
-              </Paragraph>
-            )}
+            <Paragraph fontWeight="regular" fontSize={8}>
+              {time ? time : `Time Not Available`}
+            </Paragraph>
             <p> | </p>
-            {descendants ? (
-              <Paragraph fontWeight="regular" fontSize={8}>
-                {descendants} Comments
-              </Paragraph>
-            ) : (
-              <Paragraph fontWeight="regular" fontSize={8}>
-                0 Comments
-              </Paragraph>
-            )}
+            <Paragraph fontWeight="regular" fontSize={8}>
+              {descendants ? descendants + ' Comments' : `0 Comments`}
+            </Paragraph>
           </div>
         </div>
       </Link>

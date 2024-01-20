@@ -7,6 +7,10 @@
   flex-flow: column;
   row-gap: 7px;
 }
+.no-url {
+  pointer-events: none;
+  cursor: not-allowed;
+}
 .card-details {
   display: flex;
   align-items: center;
