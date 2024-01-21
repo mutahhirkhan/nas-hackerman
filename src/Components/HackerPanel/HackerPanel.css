@@ -11,8 +11,9 @@
 }
 .headerWrapper {
   display: grid;
-  row-gap: 1rem;
+  row-gap: calc(var(--header-height) / 5);
   height: var(--header-height);
+  padding-bottom: calc(var(--header-height) / 5);
 }
 .threadPanelWrapper {
   height: calc(100vh - var(--header-height));

@@ -6,7 +6,7 @@ import Heading from 'src/Components/Heading/Heading'
 import './LoadMoreButton.css'
 import Loader from '../Loader/Loader'
 
-const LoadMoreButton = ({ loadPastArticles, loadNewArticles, switchValue, newArticlesLoading, pastArticlesLoading }) => {
+const LoadMoreButton = ({ loadPastArticles, loadNewArticles, switchValue, newArticlesLoading, pastArticlesLoading, searchQuery }) => {
   // console.log(newArticlesLoading, pastArticlesLoading)
 
   const loadArticles = () => {
@@ -29,7 +29,9 @@ const LoadMoreButton = ({ loadPastArticles, loadNewArticles, switchValue, newArt
     loadNewArticles()
   }, [loadPastArticles, loadNewArticles])
 
-  return (
+  return searchQuery ? (
+    <></>
+  ) : (
     <div className="loadMoreBtn center" onClick={loadArticles}>
       <button className="loadMoreContent">
         {newArticlesLoading || pastArticlesLoading ? (
@@ -52,7 +54,7 @@ var actions = {
 var mapState = state => ({
   newArticlesLoading: state.newArticles.loading,
   pastArticlesLoading: state.pastArticles.loading,
-  switchValue: state.switch,
+  ...state.switch,
 })
 
 export default connect(mapState, actions)(LoadMoreButton)

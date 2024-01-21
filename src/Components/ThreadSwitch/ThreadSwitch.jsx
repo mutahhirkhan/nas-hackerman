@@ -1,11 +1,12 @@
-import React from 'react'
+import { useState } from 'react'
 import './ThreadSwitch.css'
 import Heading from 'src/Components/Heading/Heading'
 import { connect } from 'react-redux'
-import { switchToNew, switchToPast } from './../../Redux/switcher/switcherActions'
+import { switchToNew, switchToPast, clearSearchQuery, addSearchQuery } from './../../Redux/switcher/switcherActions'
 
-const ThreadSwitch = ({ switchToNew, switchToPast }) => {
-  const [isNew, setIsNewPost] = React.useState(true)
+const ThreadSwitch = ({ switchToNew, switchToPast, clearSearchQuery, addSearchQuery }) => {
+  const [isNew, setIsNewPost] = useState(true)
+  // const [searchQuery, setSearchQuery] = useState('')
 
   const toggleNews = name => {
     if (name === 'new') {
@@ -16,19 +17,23 @@ const ThreadSwitch = ({ switchToNew, switchToPast }) => {
       setIsNewPost(false)
     }
   }
-
   return (
     <div className="switcher">
-      <div onClick={() => toggleNews('new')} className={`option option1 ${isNew ? 'addColor' : ''} center`}>
-        <Heading fontWeight="extra" fontSize={10}>
-          New
-        </Heading>
+      <div className="swtich-buttons">
+        <div onClick={() => toggleNews('new')} className={`option option1 ${isNew ? 'addColor' : ''} center`}>
+          <Heading fontWeight="extra" fontSize={10}>
+            New
+          </Heading>
+        </div>
+        <div onClick={() => toggleNews('past')} className={`option option2 ${!isNew ? 'addColor' : ''} center`}>
+          <Heading fontWeight="extra" fontSize={10}>
+            Past
+          </Heading>
+        </div>
       </div>
-      <div onClick={() => toggleNews('past')} className={`option option2 ${!isNew ? 'addColor' : ''} center`}>
-        <Heading fontWeight="extra" fontSize={10}>
-          Past
-        </Heading>
-      </div>
+      {/* <div className='switch-input'> */}
+      <input className="switch-input" onChange={e => addSearchQuery(e.target.value)} type="text" placeholder="Search"  />
+      {/* </div> */}
     </div>
   )
 }
@@ -36,10 +41,12 @@ const ThreadSwitch = ({ switchToNew, switchToPast }) => {
 const actions = {
   switchToNew,
   switchToPast,
+  addSearchQuery,
+  clearSearchQuery,
 }
 
 // const mapState = (state) => ({
-// 	switchValue: state.switch,
+// 	switchValue: state.switch.switchValue,
 // });
 
 //the first argument is null because we don't need to get any state from the store

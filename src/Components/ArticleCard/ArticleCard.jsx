@@ -6,11 +6,6 @@ import svgClock from 'src/Assets/clock.svg'
 import './ArticleCard.css'
 
 const ArticleCard = ({ title, text, by, url, time, descendants, innerRef }) => {
-  //time converted to date time format
-  time = String(new Date(time * 1000))
-  //then splitted into time and time zone sections
-  time = time.split('GMT')[0]
-
   return (
     <>
       <Link ref={innerRef} to={{ pathname: `${url}` }} target="_blank" className={`${!url && 'no-url'}`}>
@@ -29,11 +24,14 @@ const ArticleCard = ({ title, text, by, url, time, descendants, innerRef }) => {
           <div className="card-details">
             <img src={svgClock} alt="svgClockk" width="13px" />
             <Paragraph fontWeight="regular" fontSize={8}>
-              {time ? time : `Time Not Available`}
+              {/* //time converted to date time format
+            //then splitted into time and time zone sections
+             */}
+              {time ? String(new Date(time * 1000)).split('GMT')[0] : `Time Not Available`}
             </Paragraph>
             <p> | </p>
             <Paragraph fontWeight="regular" fontSize={8}>
-              {descendants ? descendants + ' Comments' : `0 Comments`}
+              {descendants ? descendants : 0 + ' Comments'}
             </Paragraph>
           </div>
         </div>

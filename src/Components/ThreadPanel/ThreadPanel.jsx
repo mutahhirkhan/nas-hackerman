@@ -6,6 +6,7 @@ import { loadNewArticles } from './../../Redux/loadNew/loadNewActions'
 import { connect } from 'react-redux'
 import { v4 as uuid } from 'uuid'
 import ArticleSkeleton from '../ArticleSkeleton/ArticleSkeleton'
+import { POST_FETCH_LIMIT } from '../../utility/utility.js'
 
 /**
  * newArticles = {
@@ -25,10 +26,26 @@ const ThreadPanel = ({
   pastArticles: { articles: pastArticles, loading: pastArticlesLoading },
   loadPastArticles,
   loadNewArticles,
+  searchQuery,
 }) => {
+  // const [searchQuery, setSearchQuery] = useState("You Don't Need to Document Everything")
   const [intitalLoading, setIntitalLoading] = useState(true)
   // console.log('new', newArticlesLoading, '- past', pastArticlesLoading)
   const observer = useRef()
+
+  const filteredItems = (switchValue ? newArticles : pastArticles).filter(item => {
+    const lowerCaseQuery = searchQuery.toLowerCase()
+    const lowerCaseTitle = String(item.title?.toLowerCase())
+    const lowerCaseDescription = String(item.text?.toLowerCase())
+
+    // Check for substring match in title or description
+    if (lowerCaseTitle.includes(lowerCaseQuery) || lowerCaseDescription.includes(lowerCaseQuery)) {
+      return true
+    }
+
+    return false
+  })
+  console.log(filteredItems)
 
   useEffect(() => {
     //artifically showing skeleton because of rapid fetching of data
@@ -41,7 +58,14 @@ const ThreadPanel = ({
 
   const lastArticleRef = useCallback(
     node => {
-      if (newArticlesLoading || pastArticlesLoading) return
+      /**
+       * don't want to load if already loading or if search field has some values,
+       * if search query has some values, then possibly that results are not
+       * enough to scroll then infinite scroll will keep triggering and would
+       * enough to scroll then infinite scroll will keep triggering and would
+       * cause an infinite loop and unwanted external calls.
+       */
+      if (newArticlesLoading || pastArticlesLoading || searchQuery) return
       if (observer.current) observer.current.disconnect()
 
       observer.current = new IntersectionObserver(entries => {
@@ -54,23 +78,25 @@ const ThreadPanel = ({
 
       if (node) observer.current.observe(node)
     },
-    [newArticlesLoading, pastArticlesLoading, switchValue, loadNewArticles, loadPastArticles],
+    [newArticlesLoading, pastArticlesLoading, switchValue, loadNewArticles, loadPastArticles, searchQuery],
   )
 
   return (
     <div className="threadPanel">
       {intitalLoading
-        ? Array.from({ length: 10 }).map((_, index) => <ArticleSkeleton key={index + 1} />)
+        ? Array.from({ length: POST_FETCH_LIMIT }).map((_, index) => <ArticleSkeleton key={index + 1} />)
         : switchValue
-          ? newArticles.map((comment, index) => {
-              if (newArticles.length === index + 1) return <ArticleCard innerRef={lastArticleRef} key={uuid()} {...comment} />
+          ? filteredItems.map((comment, index) => {
+              if (filteredItems.length === index + 1) return <ArticleCard innerRef={lastArticleRef} key={uuid()} {...comment} />
               return <ArticleCard key={uuid()} {...comment} />
             })
-          : pastArticles.map((comment, index) => {
-              if (pastArticles.length === index + 1) return <ArticleCard innerRef={lastArticleRef} key={uuid()} {...comment} />
+          : filteredItems.map((comment, index) => {
+              if (filteredItems.length === index + 1) return <ArticleCard innerRef={lastArticleRef} key={uuid()} {...comment} />
               return <ArticleCard key={uuid()} {...comment} />
             })}
-
+      {
+        filteredItems.length === 0 && <h1 className="no-results">Clear search and load more articles to have desired results</h1>
+      }
       {/* <ArticleCard/>
             <ArticleCard/>
             <ArticleCard/>
@@ -88,7 +114,7 @@ var actions = {
 var mapState = state => ({
   pastArticles: state.pastArticles,
   newArticles: state.newArticles,
-  switchValue: state.switch,
+  ...state.switch,
 })
 
 export default connect(mapState, actions)(ThreadPanel)
