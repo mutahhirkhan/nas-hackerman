@@ -1,6 +1,34 @@
 {
+  // "extends": "./jsconfig.node.json",
   "compilerOptions": {
-    "baseUrl": "."
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext", "ES2022"],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    // "allowImportingTsExtensions": true,
+    "outDir": "dist",
+    "types": ["vite/client", "vite-plugin-svgr/client"],
+    "sourceMap": true,
+    "noFallthroughCasesInSwitch": true,
+    "paths": {
+      "@src/*": ["./src/*"],
+      "@assets": ["./src/assets"],
+      "@utils/*": ["./src/utils/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@components/*": ["./src/components/*"],
+    },
   },
-  "include": ["src"]
+  "include": ["src"],
+  // "references": [{ "path": "./jsconfig.node.json" }],
 }

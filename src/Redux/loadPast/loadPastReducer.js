@@ -2,7 +2,7 @@ import { LOAD_PAST_ARTICLES, LOAD_PAST_ARTICLES_SUCCESS } from './loadPastConsta
 const initialState = {
   articles: [],
   loading: false,
-  counter: 1,
+  counter: 1, //counter is initially 1 beacuase we know that very first element in DB is the oldest one and it's id will be 1
 }
 
 const loadMoreReducer = (state = initialState, actions) => {

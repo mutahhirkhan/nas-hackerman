@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './ThreadSwitch.css'
-import Heading from 'src/Components/Heading/Heading'
+import Heading from './..//Heading/Heading'
 import { connect } from 'react-redux'
 import { switchToNew, switchToPast, clearSearchQuery, addSearchQuery } from './../../Redux/switcher/switcherActions'
 
@@ -32,7 +32,7 @@ const ThreadSwitch = ({ switchToNew, switchToPast, clearSearchQuery, addSearchQu
         </div>
       </div>
       {/* <div className='switch-input'> */}
-      <input className="switch-input" onChange={e => addSearchQuery(e.target.value)} type="text" placeholder="Search"  />
+      <input className="switch-input" onChange={e => addSearchQuery(e.target.value)} type="text" placeholder="Search" />
       {/* </div> */}
     </div>
   )

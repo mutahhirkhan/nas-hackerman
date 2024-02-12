@@ -1,6 +1,6 @@
 import React from 'react'
 import ContentLoader from 'react-content-loader'
-import useWindowDimensions from 'src/hooks/useWindowDimensions'
+import useWindowDimensions from './../../hooks/useWindowDimensions'
 
 const ArticleSkeleton = props => (
   <div style={{ width: `${useWindowDimensions().width < 577 ? '84vw' : '68vw'}` }}>

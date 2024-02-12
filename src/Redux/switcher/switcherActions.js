@@ -24,7 +24,7 @@ export const switchToPast = () => dispatch => {
 
 export const addSearchQuery = query => dispatch => {
   try {
-    console.log('query', query);
+    console.log('query', query)
     dispatch({
       type: ADD_SEARCH_QUERY,
       payload: query,

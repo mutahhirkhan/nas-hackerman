@@ -1,15 +1,15 @@
-import { useEffect } from 'react'
+import { useCallback, useEffect, useMemo } from 'react'
 import { connect } from 'react-redux'
 import { loadPastArticles } from '../../Redux/loadPast/loadPastActions'
 import { loadNewArticles } from './../../Redux/loadNew/loadNewActions'
-import Heading from 'src/Components/Heading/Heading'
+import Heading from './../Heading/Heading'
 import './LoadMoreButton.css'
-import Loader from '../Loader/Loader'
+import Loader from './../Loader/Loader'
 
 const LoadMoreButton = ({ loadPastArticles, loadNewArticles, switchValue, newArticlesLoading, pastArticlesLoading, searchQuery }) => {
   // console.log(newArticlesLoading, pastArticlesLoading)
 
-  const loadArticles = () => {
+  const loadArticles = useCallback(() => {
     //do not load if already loading
     if (newArticlesLoading || pastArticlesLoading) return
     if (switchValue) {
@@ -19,7 +19,7 @@ const LoadMoreButton = ({ loadPastArticles, loadNewArticles, switchValue, newArt
       //false for past posts
       loadPastArticles()
     }
-  }
+  }, [loadPastArticles, loadNewArticles, switchValue, newArticlesLoading, pastArticlesLoading])
   // console.log(moreComments)
   // const [comments, setComments] = useState([...moreComments]);
 

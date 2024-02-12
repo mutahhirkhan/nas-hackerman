@@ -1,12 +1,12 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react'
 import './ThreadPanel.css'
 import ArticleCard from './../ArticleCard/ArticleCard'
-import { loadPastArticles } from '../../Redux/loadPast/loadPastActions'
-import { loadNewArticles } from './../../Redux/loadNew/loadNewActions'
+import { loadPastArticles } from './../../Redux/loadPast/loadPastActions'
+import { loadNewArticles } from '././../../Redux/loadNew/loadNewActions'
 import { connect } from 'react-redux'
 import { v4 as uuid } from 'uuid'
-import ArticleSkeleton from '../ArticleSkeleton/ArticleSkeleton'
-import { POST_FETCH_LIMIT } from '../../utility/utility.js'
+import ArticleSkeleton from './../ArticleSkeleton/ArticleSkeleton'
+import { POST_FETCH_LIMIT } from './../../utils/index.js'
 
 /**
  * newArticles = {
@@ -94,9 +94,7 @@ const ThreadPanel = ({
               if (filteredItems.length === index + 1) return <ArticleCard innerRef={lastArticleRef} key={uuid()} {...comment} />
               return <ArticleCard key={uuid()} {...comment} />
             })}
-      {
-        filteredItems.length === 0 && <h1 className="no-results">Clear search and load more articles to have desired results</h1>
-      }
+      {filteredItems.length === 0 && <h1 className="no-results">Clear search and load more articles to have desired results</h1>}
       {/* <ArticleCard/>
             <ArticleCard/>
             <ArticleCard/>

@@ -2,7 +2,7 @@ import React from 'react'
 import Paragraph from '../Paragraph/Paragraph'
 import Heading from '../Heading/Heading'
 import { Link } from 'react-router-dom'
-import svgClock from 'src/Assets/clock.svg'
+import svgClock from './../../assets/clock.svg'
 import './ArticleCard.css'
 
 const ArticleCard = ({ title, text, by, url, time, descendants, innerRef }) => {

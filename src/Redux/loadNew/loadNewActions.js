@@ -1,5 +1,5 @@
 import { LOAD_NEW_ARTICLES, LOAD_NEW_ARTICLES_SUCCESS } from './loadNewConstants'
-import { fetchData, POST_FETCH_LIMIT } from './../../utility/utility'
+import { fetchData, POST_FETCH_LIMIT } from '../../utils'
 import axios from 'axios'
 /**
 	* 

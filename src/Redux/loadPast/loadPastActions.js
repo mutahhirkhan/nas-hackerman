@@ -1,5 +1,5 @@
 import { LOAD_PAST_ARTICLES, LOAD_PAST_ARTICLES_SUCCESS } from './loadPastConstants'
-import { fetchData, POST_FETCH_LIMIT } from '../../utility/utility'
+import { fetchData, POST_FETCH_LIMIT } from '../../utils'
 
 export const loadPastArticles = () => async (dispatch, getState) => {
   try {
