@@ -31,7 +31,7 @@ const ArticleCard = ({ title, text, by, url, time, descendants, innerRef }) => {
             </Paragraph>
             <p> | </p>
             <Paragraph fontWeight="regular" fontSize={8}>
-              {descendants ? descendants : 0 + ' Comments'}
+              {(descendants ? descendants : 0) + ' Comments'}
             </Paragraph>
           </div>
         </div>
