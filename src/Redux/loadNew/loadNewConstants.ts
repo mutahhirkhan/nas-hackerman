@@ -1,0 +1,4 @@
+export const LOAD_NEW_ARTICLES = 'LOAD_NEW_ARTICLES'
+export const LOAD_NEW_ARTICLES_SUCCESS = 'LOAD_NEW_ARTICLES_SUCCESS'
+
+export type LoadNewArticlesConstants = typeof LOAD_NEW_ARTICLES | typeof LOAD_NEW_ARTICLES_SUCCESS
